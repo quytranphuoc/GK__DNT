@@ -31,7 +31,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.chatapp_firebase"
-        minSdkVersion 23
+        minSdkVersion 20
         targetSdkVersion 34
         versionCode 1  // Adjust accordingly
         versionName "1.0.0"  // Adjust accordingly

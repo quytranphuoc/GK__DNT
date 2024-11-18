@@ -1,13 +1,18 @@
-import 'package:chatapp_firebase/helper/helper_function.dart';
-import 'package:chatapp_firebase/pages/auth/login_page.dart';
-import 'package:chatapp_firebase/pages/home_page.dart';
-import 'package:chatapp_firebase/shared/constants.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'controllers/auth_controller.dart';
+import 'controllers/common_controller.dart';
+import 'pages/splash_screen.dart';
+import 'utils/mytheme.dart';
 import 'package:flutter/foundation.dart';
+
+import 'controllers/location_controller.dart';
+import "shared/contants.dart";
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
 
   if (kIsWeb) {
     await Firebase.initializeApp(
@@ -19,44 +24,24 @@ void main() async {
   } else {
     await Firebase.initializeApp();
   }
-
+  await Firebase.initializeApp();
+  Get.put(AuthController());
+  Get.put(LocationController());
+  Get.put(CommonController());
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  bool _isSignedIn = false;
-
-  @override
-  void initState() {
-    super.initState();
-    getUserLoggedInStatus();
-  }
-
-  getUserLoggedInStatus() async {
-    await HelperFunctions.getUserLoggedInStatus().then((value) {
-      if (value != null) {
-        setState(() {
-          _isSignedIn = value;
-        });
-      }
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-          primaryColor: Constants().primaryColor,
-          scaffoldBackgroundColor: Colors.white),
+    return GetMaterialApp(
+      theme: MyTheme.myLightTheme,
       debugShowCheckedModeBanner: false,
-      home: _isSignedIn ? const HomePage() : const LoginPage(),
+      home: const SplashScreen(),
     );
   }
 }
+
+
