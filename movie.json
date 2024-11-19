@@ -1,0 +1,1231 @@
+{
+  "collection": {
+    "info": {
+      "_postman_id": "e8c43059-6744-4b78-a4d0-c622e3e57769",
+      "name": "Mor movie",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+      "updatedAt": "2024-07-24T10:27:56.000Z",
+      "createdAt": "2024-07-10T03:38:48.000Z",
+      "lastUpdatedBy": "29796967",
+      "uid": "29796967-e8c43059-6744-4b78-a4d0-c622e3e57769"
+    },
+    "item": [
+      {
+        "name": "USER",
+        "item": [
+          {
+            "name": "Register",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "c6cb2dae-110f-49de-8078-f9e3900c10d0",
+                  "exec": [
+                    "pm.environment.set(\"TOKEN\", pm.response.json().token);"
+                  ],
+                  "type": "text/javascript",
+                  "packages": {
+                    
+                  }
+                }
+              },
+              {
+                "listen": "prerequest",
+                "script": {
+                  "id": "9759eb64-5180-4863-a510-b734193e562c",
+                  "exec": [
+                    
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "id": "7efdabee-5f07-4acf-8da6-dc3ec8e86917",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "POST",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"fullname\": \"Glory John\",\n    \"email\": \"glory@g.c\",\n    \"password\": \"minah3991\"\n\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/users",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "users"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-7efdabee-5f07-4acf-8da6-dc3ec8e86917"
+          },
+          {
+            "name": "Login",
+            "event": [
+              {
+                "listen": "prerequest",
+                "script": {
+                  "id": "c47f52e4-9271-4a4c-9d06-458521cf862b",
+                  "exec": [
+                    ""
+                  ],
+                  "type": "text/javascript",
+                  "packages": {
+                    
+                  }
+                }
+              },
+              {
+                "listen": "test",
+                "script": {
+                  "id": "7eb861bd-01a9-4d75-9585-e746ba28390c",
+                  "exec": [
+                    "pm.environment.set(\"TOKEN\", pm.response.json().token);",
+                    ""
+                  ],
+                  "type": "text/javascript",
+                  "packages": {
+                    
+                  }
+                }
+              }
+            ],
+            "id": "b9830be0-baee-4924-bfd2-329e5c87c57a",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "noauth"
+              },
+              "method": "POST",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "// {\n//      \"email\": \"minah@oo.vv\",\n//     \"password\": \"minah3991\"\n   \n// }\n// {\n//     \"email\": \"kuhin.vv\",\n//     // \"password\":\"1111qu\"\n//     \"password\": \"2222quy\"\n// }\n{\n    \"email\": \"glory@g.c\",\n    \"password\": \"minah3991\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/users/login",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "users",
+                  "login"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-b9830be0-baee-4924-bfd2-329e5c87c57a"
+          },
+          {
+            "name": "Update Profile",
+            "id": "8fc8e53a-3f60-46e4-9ca9-ef39e924522f",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "PUT",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "// {\n   \n//     \"email\": \"kuhin.vv\",\n//     \"image\": \"https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745\",\n//     \"fullname\": \"kuchin\",\n\n// }\n\n \n//  {\n//      \"email\": \"minah@oo.vv\",\n//     \"password\": \"minah\",\n//     \"fullname\": \"Minah\"\n//  }\n{\n    \"image\": \"https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/users",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "users"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-8fc8e53a-3f60-46e4-9ca9-ef39e924522f"
+          },
+          {
+            "name": "Change Password",
+            "id": "58c3e2af-c546-426e-a9f3-3c895a7540cf",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "PUT",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"oldPassword\":\"1111qu\",\n    \"newPassword\":\"2222quy\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/users/password",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "users",
+                  "password"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-58c3e2af-c546-426e-a9f3-3c895a7540cf"
+          },
+          {
+            "name": "Delete Profile",
+            "id": "51e3b1ce-31a6-4175-8fba-f463895eee78",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "DELETE",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"oldPassword\": \"12345quy\",\n    \"newPassword\": \"quy12345\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/users",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "users"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-51e3b1ce-31a6-4175-8fba-f463895eee78"
+          },
+          {
+            "name": "Get All Users",
+            "id": "92127692-7c45-43db-87e8-861105943b9d",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "GET",
+              "header": [
+                
+              ],
+              "url": {
+                "raw": "http://localhost:5000/api/users",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "users"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-92127692-7c45-43db-87e8-861105943b9d"
+          },
+          {
+            "name": "Delete User",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "9fa5d2df-a15a-4b16-a27d-8a52cdef8039",
+                  "exec": [
+                    ""
+                  ],
+                  "type": "text/javascript",
+                  "packages": {
+                    
+                  }
+                }
+              },
+              {
+                "listen": "prerequest",
+                "script": {
+                  "id": "eb31c5e2-0abe-4aa1-b305-e848e81f8623",
+                  "exec": [
+                    
+                  ],
+                  "type": "text/javascript"
+                }
+              }
+            ],
+            "id": "d3ece189-bd3f-4eef-b1ae-719f87cf754b",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "DELETE",
+              "header": [
+                
+              ],
+              "url": {
+                "raw": "http://localhost:5000/api/users/668f8991dd2ceb4cff8a1ac0",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "users",
+                  "668f8991dd2ceb4cff8a1ac0"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-d3ece189-bd3f-4eef-b1ae-719f87cf754b"
+          },
+          {
+            "name": "Favorites",
+            "id": "ffc6a250-d600-4379-a5a2-f35de8442cb1",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "GET",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/users/favorites",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "users",
+                  "favorites"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-ffc6a250-d600-4379-a5a2-f35de8442cb1"
+          },
+          {
+            "name": "Add Favorite Movie",
+            "event": [
+              {
+                "listen": "test",
+                "script": {
+                  "id": "3520e7bf-0158-4332-a69b-7650aeb67337",
+                  "exec": [
+                    ""
+                  ],
+                  "type": "text/javascript",
+                  "packages": {
+                    
+                  }
+                }
+              }
+            ],
+            "id": "034bdff6-0205-48b9-9e27-349a63ec8206",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "POST",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"movieId\": \"66972381858a2a771ee3e4d4\"\n\n}   ",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/users/favorites",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "users",
+                  "favorites"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-034bdff6-0205-48b9-9e27-349a63ec8206"
+          },
+          {
+            "name": "Delete All Favorite",
+            "id": "1c5aecea-89b0-451d-844d-57d9e9cd56f9",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "DELETE",
+              "header": [
+                
+              ],
+              "url": {
+                "raw": "http://localhost:5000/api/users/favorites",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "users",
+                  "favorites"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-1c5aecea-89b0-451d-844d-57d9e9cd56f9"
+          }
+        ],
+        "id": "b53b78cd-df8d-46f5-aae8-44e3907db89e",
+        "uid": "29796967-b53b78cd-df8d-46f5-aae8-44e3907db89e"
+      },
+      {
+        "name": "MOVIES",
+        "item": [
+          {
+            "name": "Import Movies",
+            "id": "ce12e7ce-e443-4447-92b4-dc47cd20d0bd",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "POST",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "formdata",
+                "formdata": [
+                  {
+                    "key": "image",
+                    "type": "file",
+                    "src": "postman-cloud:///1ef44dd5-8694-4590-a85d-008a95de47d7",
+                    "disabled": true
+                  },
+                  {
+                    "key": "titleImage",
+                    "type": "file",
+                    "src": "postman-cloud:///1ef44dd5-8694-4590-a85d-008a95de47d7",
+                    "disabled": true
+                  }
+                ]
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/movies/import",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "movies",
+                  "import"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-ce12e7ce-e443-4447-92b4-dc47cd20d0bd"
+          },
+          {
+            "name": "Get Movies",
+            "id": "dcbd3c63-42b1-4239-ba4c-02187f09ee46",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [
+                
+              ],
+              "url": {
+                "raw": "http://localhost:5000/api/movies",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "movies"
+                ],
+                "query": [
+                  {
+                    "key": "time",
+                    "value": "5",
+                    "disabled": true
+                  },
+                  {
+                    "key": "pageNumber",
+                    "value": "4",
+                    "disabled": true
+                  },
+                  {
+                    "key": "category",
+                    "value": "Fantasy",
+                    "disabled": true
+                  },
+                  {
+                    "key": "language",
+                    "value": "English",
+                    "disabled": true
+                  },
+                  {
+                    "key": "rate",
+                    "value": "3.4",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "year",
+                    "value": "2022",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "search",
+                    "value": "a",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-dcbd3c63-42b1-4239-ba4c-02187f09ee46"
+          },
+          {
+            "name": "Get By ID",
+            "id": "e66bd8a8-b920-4d1f-8cf4-80a4bae72b70",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/movies/66987e825ea17ea6b07bfb63",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "movies",
+                  "66987e825ea17ea6b07bfb63"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-e66bd8a8-b920-4d1f-8cf4-80a4bae72b70"
+          },
+          {
+            "name": "Top Rated",
+            "id": "6010dbd5-6149-49b2-b052-4cac18dbd507",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [
+                
+              ],
+              "url": {
+                "raw": "http://localhost:5000/api/movies/rated/top",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "movies",
+                  "rated",
+                  "top"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-6010dbd5-6149-49b2-b052-4cac18dbd507"
+          },
+          {
+            "name": "Get Random",
+            "id": "fa246c5b-0a59-4801-8631-a6ece0dfb525",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [
+                
+              ],
+              "url": {
+                "raw": "http://localhost:5000/api/movies/random/all",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "movies",
+                  "random",
+                  "all"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-fa246c5b-0a59-4801-8631-a6ece0dfb525"
+          },
+          {
+            "name": "Create Reviews",
+            "id": "75c85ba2-ae44-4621-a287-6c47f465b6cb",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "POST",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"rating\": 5,\n    \"comment\": \"Lovely Movie \"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/movies/6698807f5ea17ea6b07bfb70/reviews",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "movies",
+                  "6698807f5ea17ea6b07bfb70",
+                  "reviews"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-75c85ba2-ae44-4621-a287-6c47f465b6cb"
+          },
+          {
+            "name": "Update Movie",
+            "id": "0f347cf3-57d9-42b8-99e8-ff84ee31a366",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "PUT",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"image\": \"https://media.themoviedb.org/t/p/w1066_and_h600_bestv2/tncbMvfV0V07UZozXdBEq4Wu9HH.jpg\",\n    \"titleImage\": \"https://files.slack.com/files-pri/T02CJTUJ2BY-F07DJ178V6Y/img_3746.jpg\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/movies/66a0d63a2dc10e11aa38d4a6",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "movies",
+                  "66a0d63a2dc10e11aa38d4a6"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-0f347cf3-57d9-42b8-99e8-ff84ee31a366"
+          },
+          {
+            "name": "Delete Movie",
+            "id": "868ce926-38f1-43bb-8b56-27dea869190a",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "DELETE",
+              "header": [
+                
+              ],
+              "url": {
+                "raw": "http://localhost:5000/api/movies/6697924698c8e13493a6d1cf",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "movies",
+                  "6697924698c8e13493a6d1cf"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-868ce926-38f1-43bb-8b56-27dea869190a"
+          },
+          {
+            "name": "Delete All Movie",
+            "id": "8a58b188-a852-40bf-a0ec-dd1dc965eb62",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "DELETE",
+              "header": [
+                
+              ],
+              "url": {
+                "raw": "http://localhost:5000/api/movies",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "movies"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-8a58b188-a852-40bf-a0ec-dd1dc965eb62"
+          },
+          {
+            "name": "Post Movie",
+            "id": "fa1f68d8-70ae-4bb3-9f62-be3e6de7621f",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true,
+              "followRedirects": true,
+              "followOriginalHttpMethod": false,
+              "followAuthorizationHeader": false,
+              "removeRefererHeaderOnRedirect": false,
+              "insecureHTTPParser": true,
+              "disableUrlEncoding": false,
+              "disableCookies": false,
+              "tlsPreferServerCiphers": false
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "POST",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"name\": \"Bad Boys: Ride or Die\",\n    \"title\": \"Bad Boys: Ride or Die\",\n    \"desc\": \"After their late former Captain is framed, Lowrey and Burnett try to clear his name, only to end up on the run themselves.\",\n    \"titleImage\": \"https://media.themoviedb.org/t/p/w1066_and_h600_bestv2/tncbMvfV0V07UZozXdBEq4Wu9HH.jpg\",\n    \"image\": \"https://www.themoviedb.org/t/p/w1280/nP6RliHjxsz4irTKsxe8FRhKZYl.jpg\",\n    \"category\": \"Action, Crime, Thriller, Comedy, Romance\",\n    \"language\": \"USA\",\n    \"year\": 2024,\n    \"time\": 2,\n    \"video\": \"\",\n    \"rate\": 1\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/movies",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "movies"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-fa1f68d8-70ae-4bb3-9f62-be3e6de7621f"
+          }
+        ],
+        "id": "405fdaf8-bb85-4d67-b6f4-1367f4747fd1",
+        "uid": "29796967-405fdaf8-bb85-4d67-b6f4-1367f4747fd1"
+      },
+      {
+        "name": "CATEGORIES",
+        "item": [
+          {
+            "name": "Get All Category",
+            "id": "04b8899b-944f-465e-912c-c746ce43c15b",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "method": "GET",
+              "header": [
+                
+              ],
+              "url": {
+                "raw": "http://localhost:5000/api/categories",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "categories"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-04b8899b-944f-465e-912c-c746ce43c15b"
+          },
+          {
+            "name": "Create",
+            "id": "0f7c47dc-4396-42f4-a8b7-37d135f2bbd5",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "POST",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"title\": \"Musical\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/categories",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "categories"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-0f7c47dc-4396-42f4-a8b7-37d135f2bbd5"
+          },
+          {
+            "name": "Update",
+            "id": "655d7c18-dc39-42d5-adb3-841ddd622550",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "PUT",
+              "header": [
+                
+              ],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n    \"title\": \"Fantasy\"\n}",
+                "options": {
+                  "raw": {
+                    "language": "json"
+                  }
+                }
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/categories/6698b2e87b127edd00e7de76",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "categories",
+                  "6698b2e87b127edd00e7de76"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-655d7c18-dc39-42d5-adb3-841ddd622550"
+          },
+          {
+            "name": "Delete",
+            "id": "999fb3fd-fc12-44f0-8562-d0356fe3f711",
+            "protocolProfileBehavior": {
+              "disableBodyPruning": true
+            },
+            "request": {
+              "auth": {
+                "type": "bearer",
+                "bearer": [
+                  {
+                    "key": "token",
+                    "value": "{{TOKEN}}",
+                    "type": "string"
+                  }
+                ]
+              },
+              "method": "DELETE",
+              "header": [
+                
+              ],
+              "url": {
+                "raw": "http://localhost:5000/api/categories/6698b2797b127edd00e7de67",
+                "protocol": "http",
+                "host": [
+                  "localhost"
+                ],
+                "port": "5000",
+                "path": [
+                  "api",
+                  "categories",
+                  "6698b2797b127edd00e7de67"
+                ]
+              }
+            },
+            "response": [
+              
+            ],
+            "uid": "29796967-999fb3fd-fc12-44f0-8562-d0356fe3f711"
+          }
+        ],
+        "id": "1f673bb0-cde1-422f-9cf4-7ab070b1a994",
+        "uid": "29796967-1f673bb0-cde1-422f-9cf4-7ab070b1a994"
+      },
+      {
+        "name": "Upload File",
+        "id": "7fc84804-e407-4ab5-90e4-746942e2e7d7",
+        "protocolProfileBehavior": {
+          "disableBodyPruning": true
+        },
+        "request": {
+          "method": "POST",
+          "header": [
+            
+          ],
+          "body": {
+            "mode": "formdata",
+            "formdata": [
+              {
+                "key": "file",
+                "type": "file",
+                "src": "postman-cloud:///1ef44dd5-8694-4590-a85d-008a95de47d7",
+                "disabled": true
+              },
+              {
+                "key": "file",
+                "value": "",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "file",
+                "type": "file",
+                "src": "postman-cloud:///1ef44dd5-8694-4590-a85d-008a95de47d7"
+              }
+            ]
+          },
+          "url": {
+            "raw": "http://localhost:5000/api/upload/",
+            "protocol": "http",
+            "host": [
+              "localhost"
+            ],
+            "port": "5000",
+            "path": [
+              "api",
+              "upload",
+              ""
+            ]
+          }
+        },
+        "response": [
+          
+        ],
+        "uid": "29796967-7fc84804-e407-4ab5-90e4-746942e2e7d7"
+      }
+    ]
+  }
+}
